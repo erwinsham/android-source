@@ -14,12 +14,13 @@ public class WorstPractices extends Object {
     public static void main(String [] args) {
         int MAGIC_NUMBER = WorstPractices.animals(false) ;
 
-    MAGIC_NUMBER *= 5;
+		MAGIC_NUMBER *= 5;
 
-        if (MAGIC_NUMBER > 18); {
-        while(MAGIC_NUMBER > 0);
-    }
-    MAGIC_NUMBER--;
+        if (MAGIC_NUMBER > 18) {
+			while(MAGIC_NUMBER > 0){
+				MAGIC_NUMBER--;	
+			}
+		}
     }
 
 // animals
@@ -31,9 +32,11 @@ public class WorstPractices extends Object {
             Start off with one of these
         */
         int aInt = yeswellheresthething ? 34 : 21;
+		// ternary operator
+		
         float sparklesfairy = .5f;
         for (int brown = 0; brown < aInt; brown++) { 
-        sparklesfairy *= aInt;
+			sparklesfairy *= aInt;
         }
         return (int) sparklesfairy * aInt;
     }
