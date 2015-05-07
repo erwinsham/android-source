@@ -35,9 +35,20 @@ public class Methods extends Object {
 		/************************************************
 		 * Your work goes here
 		 ************************************************/
-
-		// You are free to modify the return statement
-		return false;
+		boolean returnValue;
+		
+		if (original == true) {
+		
+			returnValue = false;
+		
+		}else {
+			
+			returnValue = true;
+			
+		}
+	// You are free to modify the return statement
+		return returnValue;
+		
 	}
 
 	/*
@@ -60,6 +71,10 @@ public class Methods extends Object {
 		/************************************************
 		 * Your work goes here
 		 ************************************************/
+		 
+		 for (int i = 0; i < numbers.length; i++) {
+				numbers[i] = numbers[i] * -1;
+		 }
 	}
 
 
@@ -75,7 +90,7 @@ public class Methods extends Object {
 	 * index is at least floor or greater, the corresponding
 	 * index in a boolean array is set to `true`, `false`
 	 * otherwise.
-	 * 
+	 *   > < => =<
 	 * E.g. {0, 5, 18, 2} with a floor of 6 returns
 	 * {false, false, true, false}
 	 * 
@@ -86,15 +101,28 @@ public class Methods extends Object {
 	 * @param someNumbers The array of integers
 	 * @return an array of booleans
 	 */
+	 
+	 // int [] someNumbersArray = {3, 7, 12, 35, 8, 1};
+	 // int floorInt = 10;
+	 
+	// boolean [] boolsRuleResult = boolsRule(floorInt, someNumbersArray);
 	public boolean[] boolsRule(int floor, int[] someNumbers) {
 		/************************************************
 		 * Your work goes here
 		 ************************************************/
+		boolean [] boolArray = new boolean [someNumbers.length];
+		
 
-		// You are free to modify the return statement
-		return new boolean [0];
+		for (int i = 0; i < someNumbers.length; i++) {
+			if (someNumbers[i] >= floor){
+				boolArray[i] = true; 
+			} else {
+				boolArray[i] = false;
+			}
+		}
+		return boolArray;
 	}
-
+    // boolArray = {false}
 	/*
 	 * getMinAndMax
 	 *
@@ -113,13 +141,27 @@ public class Methods extends Object {
 	 *		  must be recovered
 	 * @return an array of length 2: {min, max}
 	 */
+	 
+	 //int [] someNumbers = {3, 6, 202, 2, 9986, 5};
 	public int[] getMinAndMax(int[] someNumbers) {
 		/************************************************
 		 * Your work goes here
 		 ************************************************/
-
-		// You are free to modify the return statement
-		return new int[2];
+		int[] minMaxArray = new int [2];
+		int min = someNumbers[0]; 
+		int max	= someNumbers[0];
+		
+			for (int i = 0; i < someNumbers.length; i ++) {
+				if(someNumbers[i] < min) {
+					min = someNumbers[i];
+				}
+				if(someNumbers[i] > max) {
+					max = someNumbers[i];
+				}	
+			}
+			minMaxArray[0] = min;
+			minMaxArray[1] = max;
+			return minMaxArray;
 	}
 
 
