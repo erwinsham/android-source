@@ -21,12 +21,18 @@ class Dog {
 	float mWeight;
 	// The color of its coat
 	String mColor;
+	// amount of meals
+	int mMeals;
+	//amount of times play
+	int mPlay;
 
 	/************************************************
 	 * ADD MEMBER VARIABLES HERE IF NECESSARY	
 	/************************************************/
 
-
+	float getHairLength () {
+		return mHairLength;
+	}
 	/*
 	 * getHairLength
 	 *
@@ -37,6 +43,9 @@ class Dog {
  	 *	Create the getHairLength method
 	/************************************************/
 
+	void setHairLength (float hairLength) {
+		mHairLength = hairLength;	
+	}
 	/*
 	 * setHairLength
 	 *
@@ -49,7 +58,9 @@ class Dog {
  	 *	ASSIGNMENT:
  	 *	Create the setHairLength method
 	/************************************************/
-
+	String getGender() {
+		return mGender;
+	}
 	/*
 	 * getGender
 	 *
@@ -60,7 +71,9 @@ class Dog {
  	 *	ASSIGNMENT:
  	 *	Create the getGender method
 	/************************************************/
-
+	void setGender (String gender) {
+		mGender = gender;
+	}
 	/*
 	 * setGender
 	 *
@@ -73,7 +86,9 @@ class Dog {
  	 *	ASSIGNMENT:
  	 *	Create the setGender method
 	/************************************************/
-
+	String getSize() {
+		return mSize;
+	}
 	/*
 	 * getSize
 	 *
@@ -83,7 +98,9 @@ class Dog {
  	 *	ASSIGNMENT:
  	 *	Create the getSize method
 	/************************************************/
-
+	void setSize (String size) {
+		mSize = size;
+	}
 	/*
 	 * setSize
 	 *
@@ -96,7 +113,10 @@ class Dog {
  	 *	ASSIGNMENT:
  	 *	Create the setSize method
 	/************************************************/
-
+	int getAge() {
+		return mAge;
+	}
+	
 	/*
 	 * getAge
 	 *
@@ -106,7 +126,9 @@ class Dog {
  	 *	ASSIGNMENT:
  	 *	Create the getAge method
 	/************************************************/
-
+	void setAge (int age) {
+		mAge = age;
+	}
 	/*
 	 * setAge
 	 *
@@ -119,7 +141,10 @@ class Dog {
  	 *	ASSIGNMENT:
  	 *	Create the setAge method
 	/************************************************/
-
+	float getWeight() {
+		return mWeight;
+	}
+	
 	/*
 	 * getWeight
 	 *
@@ -129,7 +154,9 @@ class Dog {
  	 *	ASSIGNMENT:
  	 *	Create the getWeight method
 	/************************************************/
-
+	void setWeight (float weight) {
+		mWeight = weight;
+	}
 	/*
 	 * setWeight
 	 *
@@ -142,7 +169,9 @@ class Dog {
  	 *	ASSIGNMENT:
  	 *	Create the setWeight method
 	/************************************************/
-
+	String getColor() {
+		return mColor;
+	}
 	/*
 	 * getColor
 	 *
@@ -152,7 +181,9 @@ class Dog {
  	 *	ASSIGNMENT:
  	 *	Create the getColor method
 	/************************************************/
-
+	void setColor (String color) {
+		mColor = color;
+	}
 	/*
 	 * setColor
 	 *
@@ -180,11 +211,33 @@ class Dog {
 	 *				   "tiny"
 	 * @return nothing
 	 */
+	void feed () {
+		 
+		 //increase mMeals
+		
+			
+			mWeight = mWeight + WEIGHT_GAIN;
+				
+			if (++mMeals % 3 == 0) {
+				if (mSize.equals("tiny")){
+					mSize = "small";
+				} else if(mSize.equals("small")){
+					mSize = "average";		
+				} else if(mSize.equals("average")){
+					mSize = "large";
+				} else if(mSize.equals("large")){
+				
+				}
+			}
+		 
+		  
+	}	
+	 
 	/************************************************
  	 *	ASSIGNMENT:
  	 *	Create the feed method
 	/************************************************/
-
+	
 	/*
 	 * play
 	 *
@@ -198,6 +251,25 @@ class Dog {
 	 *		  		   MIN_WEIGHT
 	 * @return nothing
 	 */
+	 void play () {
+		
+		mWeight = mWeight - WEIGHT_LOSS;
+				
+		if (++mPlay % 6 == 0) {
+			if (mSize.equals("large")){
+				mSize = "average";
+			} else if(mSize.equals("average")){
+				mSize = "small";	
+			} else if(mSize.equals("small")){
+				mSize = "tiny";	
+			} else if(mSize.equals("tiny")){
+				
+			}	
+		}
+		
+		
+		
+	}
 	/************************************************
  	 *	ASSIGNMENT:
  	 *	Create the play method
@@ -217,5 +289,10 @@ class Dog {
  	 *	ASSIGNMENT:
  	 *	Create the cutHair method
 	/************************************************/
-
+	void cutHair () {
+		//mHairLength - HAIR_CUT_LENGTH;
+		if (mHairLength > 0f) {
+			mHairLength = mHairLength - HAIR_CUT_LENGTH;
+		}
+	}
 }
