@@ -1,6 +1,6 @@
 package com.bloc.inherit;
 
-abstract class Dog {
+class Dog {
 
 	/************************************************
  	*	YOU MAY MODIFY THIS FILE
