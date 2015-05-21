@@ -43,7 +43,7 @@ public class Main extends Object {
 			if (nirvana.mName == null || !nirvana.mName.startsWith(kurtCobain.mFirstName)) {
 				System.out.println("Your first Ensemble constructor failed to create a name for the Ensemble");
 				System.exit(1);	
-			}
+			} 
 			nirvana = (Ensemble) ensembleConstructor2.newInstance("Nirvana", (Object) new Artist[] {kurtCobain, daveGrohl, kristNovoselic, jasonEverman});
 			if ("Nirvana".equals(nirvana.mName) == false) {
 				System.out.println("Your second Ensemble constructor failed to assign the name");

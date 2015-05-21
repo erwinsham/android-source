@@ -12,6 +12,11 @@ class Artist extends Object {
 	 * @param firstName (String)
 	 * @param lastName (String)
 	 */
+	 Artist (String firstName,  String lastName) {
+		this.mFirstName = firstName;
+		this.mLastName = lastName;
+	 }
+	 
 	/************************************************
 	 *	ASSIGNMENT:
 	 *	Create the Artist constructor
