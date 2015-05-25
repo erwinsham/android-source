@@ -4,7 +4,10 @@ package com.bloc.securitypackages;
  *	ASSIGNMENT:
  *	Import the appopriate classes/packages below
 /************************************************/
-
+import com.bloc.securitypackages.apples.*;
+import com.bloc.securitypackages.citrus.Orange;
+import com.bloc.securitypackages.citrus.Grapefruit;
+import com.bloc.securitypackages.colors.*;
 // e.g. import com.bloc.{your_package};
 
 /************************************************
@@ -25,7 +28,7 @@ public class Main extends Object {
 		colors[1] = fruits[1].getColor();
 		colors[2] = fruits[2].getColor();
 		colors[3] = fruits[3].getColor();
-		colors[4] = new Orange();
+		colors[4] = new com.bloc.securitypackages.colors.Orange();
 
 		
 		System.out.println("/************************/");
