@@ -9,7 +9,7 @@ package com.bloc.statics.appliances;
 import com.bloc.statics.PowerSupply;
 
 public abstract class Appliance extends Object {
-	PowerSupply sPowerSupply;
+	public static PowerSupply sPowerSupply;
 
 	String mBrandName;
 	String mSerialNumber;
