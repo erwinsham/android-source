@@ -24,13 +24,23 @@ public class FavoritePastries {
 	 *	Use a HashMap to store the relationship
 	 *	between rating and pastry: HashMap<Integer, List<Pastry>>
 	/************************************************/
+	/*
+	*{1:[Danish]};
+	*{1:[Danish], 2:[Doughnut]};
+	*{1 :[Danish], 2:[Doughnut, Muffin]};
+	*{1 :[Danish], 2:[Doughnut, Muffin], 3:[Brownie]};
+	*{1 :[Danish], 2:[Doughnut, Muffin, Cookie], 3:[Brownie, creme puff]};
+	*{1 :[Danish], 2:[Doughnut, Cookie], 3:[Brownie, creme puff], 4:[Muffin]};
+	*/
 
-
-	public FavoritePastries() {
-		/************************************************
- 	 	 *	WORK HERE
-		/************************************************/
-	}
+	
+		private HashMap<Integer, List<Pastry>> mFavoritePastriesMap;
+		
+		public FavoritePastries(){
+			
+			mFavoritePastriesMap = new HashMap<Integer, List<Pastry>>();
+			
+		}
 
 	/* 
 	 * addPastry
@@ -48,9 +58,30 @@ public class FavoritePastries {
 	 * @return nothing
 	 */
 	public void addPastry(Pastry pastry, int rating) {
-		/************************************************
- 	 	 *	WORK HERE
-		/************************************************/
+		Integer ratingsInteger = new Integer(rating);
+		if (mFavoritePastriesMap.containsKey(ratingsInteger)){
+		List<Pastry> pastries = mFavoritePastriesMap.get(ratingsInteger);
+					
+			for (Pastry p : pastries){
+				if (p.toString().equals(pastry.toString())){
+					pastries.remove(p);
+				}
+			}
+		}
+		
+		// check if the key exists (the key is the rating) use .containsKey() on mFavoritePastriesMap
+		List<Pastry> pastriesTwo;
+		if (mFavoritePastriesMap.containsKey(ratingsInteger)){
+			pastriesTwo = mFavoritePastriesMap.get(ratingsInteger);
+			pastriesTwo.add(pastry);
+		} else {
+			pastriesTwo = new ArrayList<Pastry> ();
+			pastriesTwo.add(pastry);
+		}
+		mFavoritePastriesMap.put(ratingsInteger, pastriesTwo);
+		// if it does exist, then add the pastry to the existing list of pastries. Use .add(pastry) on that list 
+		// if it doesn't exist then create a new list and add the pastry to that list
+		
 	}
 
 	/* 
@@ -66,9 +97,16 @@ public class FavoritePastries {
 	 *		   false otherwise
 	 */
 	public boolean removePastry(Pastry pastry) {
-		/************************************************
- 	 	 *	WORK HERE, you must modify the return value
-		/************************************************/
+		for (List<Pastry> pastries : mFavoritePastriesMap.values()) {
+			for (Pastry p : pastries){
+				if (p.toString().equals(pastry.toString())){
+					pastries.remove(p);
+				return true;
+				} 
+			}
+			
+			
+		}
 		return false;
 	}
 
@@ -87,9 +125,20 @@ public class FavoritePastries {
 	 *		   -1 if not found among FavoritePastries
 	 */
 	public int getRatingForPastry(Pastry pastry) {
-		/************************************************
- 	 	 *	WORK HERE, you must modify the return value
-		/************************************************/
+		
+		for (Map.Entry<Integer, List<Pastry>> entry : mFavoritePastriesMap.entrySet()) {
+			List<Pastry> pastries = entry.getValue();
+			for (Pastry p : pastries){
+				if (pastry.toString().equals(p.toString())){
+					return entry.getKey();
+				}
+			}
+			
+			
+		}
+		
+		
+		
 		return -1;
 	}
 
@@ -110,10 +159,15 @@ public class FavoritePastries {
 	 *         found
 	 */
 	public Collection<Pastry> getPastriesForRating(int rating) {
-		/************************************************
- 	 	 *	WORK HERE, you must modify the return value
-		/************************************************/
-		return null;
+			
+			Integer ratingsInteger = new Integer(rating);
+			
+			return mFavoritePastriesMap.get(ratingsInteger);
+			
+			
+			
+		
+		
 	}
 
 }
